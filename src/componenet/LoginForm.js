@@ -42,6 +42,7 @@ export default function LoginForm() {
 
   const handlesubmit = (e) => {
     e.preventDefault();
+    console.log("test");
 
     if (userRegiterDatas !== null) {
       const userData = userRegiterDatas.filter((rd) => {
