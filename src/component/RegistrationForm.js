@@ -1,7 +1,9 @@
+import alertify from "alertifyjs";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function RegistrationForm() {
+  const nevigate = useNavigate();
   const date = new Date();
   const time = date.getTime();
 
@@ -88,6 +90,10 @@ export default function RegistrationForm() {
         if (validate(registerdata)) {
           e.target.reset();
           storeRegisterData();
+          alertify
+            .alert("registration successfully")
+            .setHeader("<em> Registration </em> ");
+          nevigate("/");
           setRegisterdata({
             id: time,
             Firstname: "",
