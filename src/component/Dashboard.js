@@ -26,14 +26,20 @@ export default function Dashboard() {
 
   return (
     <>
-      {loginName !== null && userInformationData !== null && (
+      {loginName !== null && (
         <>
-          <div>Dashboard</div>
-          <h1>
-            <>
-              Your name is {userInformationData?.Firstname}{" "}
-              {userInformationData?.Lastname}
-            </>
+          <div>
+            <h1 style={{ margin: "35px" }}>
+              <b>Dashboard</b>
+            </h1>
+          </div>
+          <h1 style={{ margin: "70px" }}>
+            {userInformationData !== null && (
+              <>
+                Your name is {userInformationData?.Firstname}{" "}
+                {userInformationData?.Lastname}
+              </>
+            )}
           </h1>
           <button style={{ width: "150px" }} onClick={logout}>
             Log out
