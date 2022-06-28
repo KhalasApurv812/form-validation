@@ -90,9 +90,8 @@ export default function RegistrationForm() {
         if (validate(registerdata)) {
           e.target.reset();
           storeRegisterData();
-          alertify
-            .alert("registration successfully")
-            .setHeader("<em> Registration </em> ");
+          alertify.set("notifier", "position", "top-center");
+          alertify.success("Registration successfull!!");
           nevigate("/");
           setRegisterdata({
             id: time,
