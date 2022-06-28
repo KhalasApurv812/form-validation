@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Dashboard from "./component/Dashboard";
 import LoginForm from "./component/LoginForm";
 import RegistrationForm from "./component/RegistrationForm";
+import Error from "./component/Error";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<LoginForm />} />
           <Route path="/registration" element={<RegistrationForm />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>
     </div>
