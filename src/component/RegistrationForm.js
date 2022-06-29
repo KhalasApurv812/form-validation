@@ -87,36 +87,18 @@ export default function RegistrationForm() {
       if (matchmail.length !== 0) {
         alert("this email is already registered");
       } else {
-        if (validate(registerdata)) {
+        if (validate()) {
           e.target.reset();
           storeRegisterData();
           alertify.set("notifier", "position", "top-center");
           alertify.success("Registration successfull!!");
           nevigate("/");
-          setRegisterdata({
-            id: time,
-            Firstname: "",
-            Lastname: "",
-            gender: "",
-            Email: "",
-            ContactNumber: "",
-            Password: "",
-          });
         }
       }
     } else {
       if (validate()) {
         e.target.reset();
         storeRegisterData();
-        setRegisterdata({
-          id: time,
-          Firstname: "",
-          Lastname: "",
-          gender: "",
-          Email: "",
-          ContactNumber: "",
-          Password: "",
-        });
       }
     }
   };
@@ -190,7 +172,9 @@ export default function RegistrationForm() {
             name="Password"
             onChange={handleInput}
           />
-          <button style={{ marginTop: "13px" }}>Register</button>
+          <button className="button" style={{ marginTop: "13px" }}>
+            Register
+          </button>
           <p style={{ textAlign: "center" }}>
             Already have an Account! <Link to="/">Login Here !</Link>
           </p>

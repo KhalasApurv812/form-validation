@@ -43,13 +43,14 @@ export default function LoginForm() {
   const handlesubmit = (e) => {
     e.preventDefault();
     console.log("test");
-
+    // register data not null then check the email is already register or not
     if (userRegiterDatas !== null) {
       const userData = userRegiterDatas.filter((rd) => {
         return (
           rd.Email === loginData.Email && rd.Password === loginData.Password
         );
       });
+
       if (userData && userData.length !== 0) {
         if (loginData.Email !== "" && loginData.Password !== "") {
           alert("Login success");
@@ -102,7 +103,9 @@ export default function LoginForm() {
             onChange={handleInput}
           />
 
-          <button style={{ marginTop: "13px" }}>Log In</button>
+          <button className="button" style={{ marginTop: "13px" }}>
+            Log In
+          </button>
           <p style={{ textAlign: "center" }}>
             Don't have an Account! {"  "}
             <Link to="/registration">Register here!</Link>
