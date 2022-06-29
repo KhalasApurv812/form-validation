@@ -188,3 +188,8 @@ textarea {
   display: flex;
   margin-top: 15px;
 }
+
+.seticon {
+  margin-top: -21px;
+  margin-left: -8px;
+}

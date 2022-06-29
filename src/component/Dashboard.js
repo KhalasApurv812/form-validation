@@ -3,6 +3,7 @@ import React from "react";
 import Footer from "./Footer";
 
 import Header from "./Header";
+import ScrollToTop from "./ScrollToTop";
 
 export default function Dashboard() {
   const userInformationData = JSON.parse(localStorage.getItem("userInfo"));
@@ -108,6 +109,7 @@ export default function Dashboard() {
           </li>
         </ul>
       </div>
+      <ScrollToTop />
       <Footer />
     </>
   );

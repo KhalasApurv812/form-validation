@@ -20,6 +20,7 @@ export default function ProductList() {
 
   useEffect(() => {
     apiGet();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

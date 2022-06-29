@@ -3,6 +3,7 @@ import { Button, Card, Col, Container, Row, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import Header from "./Header";
+import ScrollToTop from "./ScrollToTop";
 
 export default function Product() {
   const [data, setData] = useState([]);
@@ -61,6 +62,7 @@ export default function Product() {
           </div>
         </>
       )}
+      <ScrollToTop />
       <Footer />
     </>
   );
