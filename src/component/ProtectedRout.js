@@ -11,7 +11,7 @@ export default function ProtectedRout(props) {
     if (!login) {
       nevigate("/");
     }
-  });
+  }, [nevigate]);
   return (
     <>
       <Authentication />
