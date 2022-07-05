@@ -26,6 +26,7 @@ export default function CustomPagination({
                   paginate(number);
                   window.scrollTo(0, 0);
                 }}
+                style={{ cursor: "pointer" }}
                 className="page-link"
               >
                 {number}
