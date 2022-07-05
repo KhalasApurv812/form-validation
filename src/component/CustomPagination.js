@@ -19,7 +19,7 @@ export default function CustomPagination({
           {pageNumbers.map((number) => (
             <li
               key={number}
-              className={`page-item ${number === page ? "active" : null}`}
+              className={`page-item ${number === page ? "active" : ""}`}
             >
               <a
                 onClick={() => {

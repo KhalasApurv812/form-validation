@@ -28,7 +28,7 @@ export default function Sorting({ Data, setOrder, setSorting }) {
       <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
         <Nav
           className="me-auto my-2 my-lg-0"
-          style={{ maxHeight: "100px" }}
+          style={{ maxHeight: "100px", justifyContent: "center" }}
           navbarScroll
         >
           <NavDropdown title="sort by price" id="navbarScrollingDropdown">

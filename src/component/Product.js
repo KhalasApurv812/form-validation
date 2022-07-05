@@ -12,7 +12,7 @@ export default function Product() {
   const [searchInput, setSearchInput] = useState([]);
   const [sorting, setSorting] = useState(false);
   const [loading, setLoading] = useState(false);
-  let [page, setPage] = useState(1);
+  const [page, setPage] = useState(1);
   const PER_PAGE = 10;
 
   // pagination method start
@@ -44,83 +44,69 @@ export default function Product() {
   return (
     <>
       <Header Data={data} setData={setData} searchInput={searchInput} />
-
+      <div style={{ marginTop: "50px" }}>
+        <Sorting
+          Data={currentPosts}
+          setOrder={setOrder}
+          setSorting={setSorting}
+        />
+      </div>
       {loading ? (
         <>
-          <Row>
-            <Col className="col-md-2">
-              <Container>
-                <div style={{ marginTop: "100px" }}>
-                  <Sorting
-                    Data={currentPosts}
-                    setOrder={setOrder}
-                    setSorting={setSorting}
-                  />
-                </div>
-              </Container>
-            </Col>
-            <Col className="col-md-10">
-              <div
-                style={{
-                  marginTop: "80px",
-                  marginRight: "50px",
-                  marginLeft: "50px",
-                }}
-              >
-                <Row className="my-5" lg={4} xs={1}>
-                  {sorting ? (
-                    <>
-                      {order.map((newdata) => {
-                        return (
-                          <Col className="col-md-3 my-2" key={newdata.id}>
-                            <Card height="400px" className="ap4">
-                              <Card.Img
-                                variant="top"
-                                height="200px"
-                                src={newdata.image}
-                              />
-                              <Card.Body>
-                                <h6> Name: {newdata.name} </h6>
-                                <h6> Category: {newdata.category} </h6>
-                                <h6> Price: {newdata.price} </h6>
-                                <Link to={`/product/${newdata.slug}`}>
-                                  <Button variant="primary">View Detail</Button>
-                                </Link>
-                              </Card.Body>
-                            </Card>
-                          </Col>
-                        );
-                      })}
-                    </>
-                  ) : (
-                    <>
-                      {currentPosts.map((newdata) => {
-                        return (
-                          <Col className="col-md-3 my-2" key={newdata.id}>
-                            <Card height="400px" className="ap4">
-                              <Card.Img
-                                variant="top"
-                                height="200px"
-                                src={newdata.image}
-                              />
-                              <Card.Body>
-                                <h6> Name: {newdata.name} </h6>
-                                <h6> Category: {newdata.category} </h6>
-                                <h6> Price: {newdata.price} </h6>
-                                <Link to={`/product/${newdata.slug}`}>
-                                  <Button variant="primary">View Detail</Button>
-                                </Link>
-                              </Card.Body>
-                            </Card>
-                          </Col>
-                        );
-                      })}
-                    </>
-                  )}
-                </Row>
-              </div>
-            </Col>
-          </Row>
+          <Container>
+            <Row className="my-5" lg={4} xs={1}>
+              {sorting ? (
+                <>
+                  {order.map((newdata) => {
+                    return (
+                      <Col className="col-md-3 my-2" key={newdata.id}>
+                        <Card height="400px" className="ap4">
+                          <Card.Img
+                            variant="top"
+                            height="200px"
+                            style={{ objectFit: "cover" }}
+                            src={newdata.image}
+                          />
+                          <Card.Body>
+                            <h6> Name: {newdata.name} </h6>
+                            <h6> Category: {newdata.category} </h6>
+                            <h6> Price: {newdata.price} </h6>
+                            <Link to={`/product/${newdata.slug}`}>
+                              <Button variant="primary">View Detail</Button>
+                            </Link>
+                          </Card.Body>
+                        </Card>
+                      </Col>
+                    );
+                  })}
+                </>
+              ) : (
+                <>
+                  {currentPosts.map((newdata) => {
+                    return (
+                      <Col className="col-md-3 my-2" key={newdata.id}>
+                        <Card height="400px" className="ap4">
+                          <Card.Img
+                            variant="top"
+                            height="200px"
+                            src={newdata.image}
+                          />
+                          <Card.Body>
+                            <h6> Name: {newdata.name} </h6>
+                            <h6> Category: {newdata.category} </h6>
+                            <h6> Price: {newdata.price} </h6>
+                            <Link to={`/product/${newdata.slug}`}>
+                              <Button variant="primary">View Detail</Button>
+                            </Link>
+                          </Card.Body>
+                        </Card>
+                      </Col>
+                    );
+                  })}
+                </>
+              )}
+            </Row>
+          </Container>
         </>
       ) : (
         <>
@@ -135,6 +121,7 @@ export default function Product() {
           postperpage={PER_PAGE}
           totalPost={data.length}
           paginate={paginate}
+          page={page}
         />
       </div>
       <Footer />

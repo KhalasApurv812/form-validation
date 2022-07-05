@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 
 export default function Search({ filter, handleSearch }) {
   return (
-    <Paper component="form" sx={{ p: "2px 4px", display: "flex", width: 400 }}>
+    <Paper component="form" sx={{ p: "2px 4px", display: "flex" }}>
       <InputBase
         sx={{ ml: 1, flex: 1 }}
         placeholder="Search Product"
