@@ -8,28 +8,26 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
-import Sorting from "./Sorting";
+import Search from "./Search";
 
-export default function Header({ Data, setData }) {
+export default function Header({ Data, setData, searchInput }) {
   let navigate = useNavigate();
   const loginName = JSON.parse(localStorage.getItem("userLoginData"));
-  const [, setSortingData] = useState();
 
-  const sortAscending = () => {
-    setSortingData("asc");
-    const sortascData = Data.sort(function (a, b) {
-      return a.price - b.price;
-    });
-    setData(sortascData);
-  };
+  const [filter, setFilter] = useState("");
 
-  const sortDescending = () => {
-    setSortingData("dsc");
-    const sortdscData = Data.sort(function (a, b) {
-      return b.price - a.price;
-    });
-
-    setData(sortdscData);
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (e.target.value === "") {
+      setData(searchInput);
+    } else {
+      const filterdata = Data.filter((elem) =>
+        elem.name.toLowerCase().includes(e.target.value.toLowerCase())
+      );
+      console.log(filterdata);
+      setData(filterdata);
+    }
+    setFilter(e.target.value);
   };
 
   // this is use for without login search in url to nevigate to login
@@ -51,7 +49,7 @@ export default function Header({ Data, setData }) {
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="fixed">
+        <AppBar position="sticky">
           <div>
             <Toolbar>
               <IconButton
@@ -90,15 +88,8 @@ export default function Header({ Data, setData }) {
                 </Typography>
               </div>
               <div>
-                <Typography
-                  variant="h6"
-                  component="div"
-                  sx={{ flexGrow: 1, textDecoration: "none", color: "White" }}
-                >
-                  <Sorting
-                    sortAscending={sortAscending}
-                    sortDescending={sortDescending}
-                  />
+                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                  <Search filter={filter} handleSearch={handleSearch} />
                 </Typography>
               </div>
             </Toolbar>

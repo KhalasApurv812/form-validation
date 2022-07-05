@@ -199,6 +199,10 @@ textarea {
   justify-content: center;
 }
 
-#navbarScrollingDropdown {
-  color: #eaf0fb !important;
+h6 {
+  text-align: left !important;
+}
+
+.card-title {
+  text-align: left !important;
 }
