@@ -27,3 +27,26 @@ function usePagination(data, itemsPerPage) {
 }
 
 export default usePagination;
+
+// material ui pagination
+
+// const count = Math.ceil(data.length / PER_PAGE);
+// const _DATA = usePagination(currentPosts, PER_PAGE);
+
+// const handleChange = (e, p) => {
+//   window.scrollTo(0, 0);
+//   setPage(p);
+//   _DATA.jump(p);
+//   setSorting(false);
+// };
+
+// <div className="pagination">
+//   <Pagination
+//     count={count}
+//     size="large"
+//     page={page}
+//     variant="outlined"
+//     shape="rounded"
+//     onChange={handleChange}
+//   />
+// </div>
