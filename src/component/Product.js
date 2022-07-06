@@ -11,7 +11,7 @@ export default function Product() {
   const [data, setData] = useState([]);
   const [, setOrder] = useState([]);
   const [searchInput, setSearchInput] = useState([]);
-  const [, setSorting] = useState(false);
+
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const PER_PAGE = 10;
@@ -24,7 +24,6 @@ export default function Product() {
   //change page of pagination
   const paginate = (pageNumbers) => {
     setPage(pageNumbers);
-    setSorting(false);
   };
   // end
   // end
@@ -46,7 +45,7 @@ export default function Product() {
     <>
       <Header Data={data} setData={setData} searchInput={searchInput} />
       <div style={{ marginTop: "50px" }}>
-        <Sorting Data={data} setOrder={setOrder} setSorting={setSorting} />
+        <Sorting Data={data} setOrder={setOrder} />
       </div>
       {loading ? (
         <>

@@ -2,7 +2,7 @@ import { Typography } from "@mui/material";
 import * as React from "react";
 import { Nav, NavDropdown } from "react-bootstrap";
 
-export default function Sorting({ Data, setOrder, setSorting }) {
+export default function Sorting({ Data, setOrder }) {
   const [, setSortingData] = React.useState();
 
   const sortAscending = () => {
@@ -11,7 +11,6 @@ export default function Sorting({ Data, setOrder, setSorting }) {
       return a.price - b.price;
     });
     setOrder(sortascData);
-    setSorting(true);
   };
 
   const sortDescending = () => {
@@ -21,7 +20,6 @@ export default function Sorting({ Data, setOrder, setSorting }) {
     });
 
     setOrder(sortdscData);
-    setSorting(true);
   };
   return (
     <>
